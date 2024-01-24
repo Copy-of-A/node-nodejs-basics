@@ -1,28 +1,15 @@
 // @ts-check
-import { writeFile, access, constants } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
-
-const isFileExist = async (filepath) => {
-  let isExist = true;
-
-  try {
-    await access(filepath, constants.R_OK | constants.W_OK);
-  } catch {
-    isExist = false;
-  }
-
-  return isExist;
-};
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
+import * as utils from "./utils.mjs";
 
 const create = async () => {
-  const filepath = path.join(__dirname, "files/fresh.txt");
+  const filepath = path.join(utils.DIRNAME, "files/fresh.txt");
 
-  if (await isFileExist(filepath)) throw new Error("FS operation failed");
+  if (await utils.ifPathExist(filepath))
+    throw new Error(utils.FS_ERROR_MESSAGE);
 
-  await writeFile(filepath, "I am fresh and young");
+  await fs.writeFile(filepath, "I am fresh and young");
 };
 
 await create();
