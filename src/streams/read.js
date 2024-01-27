@@ -6,7 +6,7 @@ export const DIRNAME = url.fileURLToPath(new URL(".", import.meta.url));
 
 const read = async () => {
   const readableStream = fs.createReadStream(
-    path.join(DIRNAME, "files/fileToRead.txt"),
+    path.join(DIRNAME, "files", "fileToRead.txt"),
     {
       encoding: "utf-8",
     }

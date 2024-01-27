@@ -4,8 +4,8 @@ import * as path from "node:path";
 import * as utils from "./utils.mjs";
 
 const rename = async () => {
-  const oldName = path.join(utils.DIRNAME, "files/wrongFilename.txt");
-  const newName = path.join(utils.DIRNAME, "files/properFilename.md");
+  const oldName = path.join(utils.DIRNAME, "files", "wrongFilename.txt");
+  const newName = path.join(utils.DIRNAME, "files", "properFilename.md");
 
   const [isOldFileExist, isNewFileExist] = await Promise.all([
     utils.ifPathExist(oldName),

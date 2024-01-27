@@ -4,7 +4,7 @@ import * as path from "node:path";
 import * as utils from "./utils.mjs";
 
 const remove = async () => {
-  const filepath = path.join(utils.DIRNAME, "files/fileToRemove.txt");
+  const filepath = path.join(utils.DIRNAME, "files", "fileToRemove.txt");
 
   if (!(await utils.ifPathExist(filepath)))
     throw new Error(utils.FS_ERROR_MESSAGE);

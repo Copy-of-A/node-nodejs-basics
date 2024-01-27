@@ -4,7 +4,7 @@ import * as path from "node:path";
 import * as utils from "./utils.mjs";
 
 const create = async () => {
-  const filepath = path.join(utils.DIRNAME, "files/fresh.txt");
+  const filepath = path.join(utils.DIRNAME, "files", "fresh.txt");
 
   if (await utils.ifPathExist(filepath))
     throw new Error(utils.FS_ERROR_MESSAGE);
